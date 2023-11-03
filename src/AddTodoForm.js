@@ -10,7 +10,6 @@ const AddTodoForm = ({ onAddTodo }) => {
   };
 
   const handleAddTodo = (event) => {
-    event.preventDefault();
     //console.log("value is", todoTitle);
     //pass an Object instead of a String
     onAddTodo({
@@ -18,6 +17,7 @@ const AddTodoForm = ({ onAddTodo }) => {
       id: Date.now(), // place holder to generate unique number
     });
     setTodoTitle(""); //reset todoTitle to empty String
+    event.preventDefault();
   };
 
   return (
