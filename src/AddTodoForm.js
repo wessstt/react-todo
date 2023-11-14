@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddTodoForm = ({ onAddTodo }) => {
-  const [todoTitle, setTodoTitle] = React.useState("");
+  const [todoTitle, setTodoTitle] = React.useState([""]);
 
   const handleTitleChange = (event) => {
     const newTodoTitle = event.target.value;
@@ -10,19 +10,18 @@ const AddTodoForm = ({ onAddTodo }) => {
   };
 
   const handleAddTodo = (event) => {
-    //console.log("value is", todoTitle);
+    event.preventDefault();
     //pass an Object instead of a String
     onAddTodo({
       title: todoTitle,
       id: Date.now(), // place holder to generate unique number
     });
     setTodoTitle(""); //reset todoTitle to empty String
-    event.preventDefault();
   };
 
   return (
     <form onSubmit={handleAddTodo}>
-      <label htmlFor="todoTitle">Title</label>
+      <label htmlFor="todoTitle"> Title &nbsp; </label>
       <input
         id="todoTitle"
         type="text"
@@ -30,7 +29,8 @@ const AddTodoForm = ({ onAddTodo }) => {
         value={todoTitle}
         onChange={handleTitleChange}
       />
-      <button type="submit">Add</button>
+      &nbsp;
+      <button type="submit"> Add </button>
     </form>
   );
 };
