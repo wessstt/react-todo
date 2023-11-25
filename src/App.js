@@ -7,6 +7,7 @@ const titleHeader = "Todo List";
 const App = () => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const getDataWithDelay = () =>
     new Promise((resolve, reject) =>
@@ -20,10 +21,12 @@ const App = () => {
     );
 
   useEffect(() => {
-    getDataWithDelay().then((result) => {
-      setTodoList(result.data.todoList);
-      setIsLoading(false);
-    });
+    getDataWithDelay()
+      .then((result) => {
+        setTodoList(result.data.todoList);
+        setIsLoading(false);
+      })
+      .catch(() => setIsError(true));
   }, []);
 
   useEffect(() => {
@@ -45,6 +48,8 @@ const App = () => {
       <div style={{ textAlign: "center" }}>
         <h1>{titleHeader}</h1>
         <AddTodoForm onAddTodo={addTodo} />
+
+        {isError && <p>Something went wrong...</p>}
 
         {isLoading ? (
           <p>Loading...</p>
