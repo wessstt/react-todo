@@ -4,20 +4,36 @@ import TodoList from "./TodoList";
 
 const titleHeader = "Todo List";
 
-const useSemiPersistentState = () => {
-  const [todoList, setTodoList] = useState(
-    JSON.parse(localStorage.getItem("key")) ?? []
-  );
+const App = () => {
+  const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  const getDataWithDelay = () =>
+    new Promise((resolve, reject) =>
+      setTimeout(
+        () =>
+          resolve({
+            data: { todoList: JSON.parse(localStorage.getItem("key")) ?? [] },
+          }),
+        2000
+      )
+    );
 
   useEffect(() => {
-    localStorage.setItem("key", JSON.stringify(todoList));
-  }, [todoList]);
+    getDataWithDelay()
+      .then((result) => {
+        setTodoList(result.data.todoList);
+        setIsLoading(false);
+      })
+      .catch(() => setIsError(true));
+  }, []);
 
-  return [todoList, setTodoList];
-};
-
-const App = () => {
-  const [todoList, setTodoList] = useSemiPersistentState();
+  useEffect(() => {
+    if (!isLoading) {
+      localStorage.setItem("key", JSON.stringify(todoList));
+    }
+  }, [isLoading, todoList]);
 
   //Declare a new function named addTodo that takes newTodo as a parameter
   const addTodo = (newTodo) => setTodoList([...todoList, newTodo]);
@@ -32,7 +48,14 @@ const App = () => {
       <div style={{ textAlign: "center" }}>
         <h1>{titleHeader}</h1>
         <AddTodoForm onAddTodo={addTodo} />
-        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+
+        {isError && <p>Something went wrong...</p>}
+
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+        )}
       </div>
     </>
   );
