@@ -12,10 +12,16 @@ const AddTodoForm = ({ onAddTodo }) => {
 
   const handleAddTodo = (event) => {
     event.preventDefault();
+
+    if (!todoTitle.trim().length) {
+      alert("Please enter a list item.");
+      return;
+    }
+
     //pass an Object instead of a String
     onAddTodo({
       title: todoTitle,
-      id: Date.now(), // place holder to generate unique number
+      //id: Date.now(), // place holder to generate unique number
     });
     setTodoTitle(""); //reset todoTitle to empty String
   };
