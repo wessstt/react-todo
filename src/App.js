@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const titleHeader = "Todo List";
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${process.env.REACT_APP_TABLE_NAME}/`;
@@ -121,20 +122,37 @@ const App = () => {
   };
 
   return (
-    <>
-      <div style={{ textAlign: "center" }}>
-        <h1>{titleHeader}</h1>
-        <AddTodoForm onAddTodo={addTodo} />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div style={{ textAlign: "center" }}>
+                <h1>{titleHeader}</h1>
+                <AddTodoForm onAddTodo={addTodo} />
 
-        {isError && <p>Uh oh! Something went wrong :(</p>}
+                {isError && <p>Uh oh! Something went wrong :(</p>}
 
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-        )}
-      </div>
-    </>
+                {isLoading ? (
+                  <p>Loading...</p>
+                ) : (
+                  <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+                )}
+              </div>
+            </>
+          }
+        />
+        <Route
+          path="/new"
+          element={
+            <>
+              <h1>New Todo List</h1>
+            </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
