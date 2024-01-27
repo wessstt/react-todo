@@ -1,0 +1,24 @@
+nav {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  background-color: #c6ec4c;
+  padding: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5pt;
+}
+
+nav a {
+  color: #4f5b5c;
+  margin: 0 8%;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline 2px;
+  text-underline-offset: 6px;
+  transition: 3s;
+  font-weight: 800;
+}

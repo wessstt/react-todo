@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #4c5b5c;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 4em;
+  font-weight: 600;
+  letter-spacing: 3pt;
+  color: #eaf4f4;
+  margin-top: 0.5em;
+}
+
+Input {
+  background: #eaf4f4;
+  border: 1px solid #a0d2db;
+  border-radius: 5px;
+  padding: 2% 16%;
+  margin: 1%;
+  font-weight: 500;
+}
+
+.Loading {
+  display: flex;
+  justify-content: center;
+  fill: #c6ec4c;
+}
+.Error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eaf4f4;
+  font-weight: 800;
+  fill: #ff715b;
+}

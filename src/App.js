@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+import { ReactComponent as Loading } from "./svg/loading.svg";
+import { ReactComponent as Error } from "./svg/error.svg";
 import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styles from "./css/app.module.css";
+import Navbar from "./Navbar.js";
 
-const titleHeader = "Todo List";
+const todoHeader = "Todo List";
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${process.env.REACT_APP_TABLE_NAME}/`;
 
 const App = () => {
@@ -122,37 +127,43 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div style={{ textAlign: "center" }}>
-                <h1>{titleHeader}</h1>
-                <AddTodoForm onAddTodo={addTodo} />
+    <ChakraProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <div className={styles.container}>
+                  <div className={styles.App}>
+                    <h1 className={styles.ListTitle}>{todoHeader}</h1>
+                    <AddTodoForm onAddTodo={addTodo} />
 
-                {isError && <p>Uh oh! Something went wrong :(</p>}
+                    {isError && (
+                      <p className={styles.Error}>
+                        {" "}
+                        <Error height="30px" width="30px" /> &nbsp; Uh oh!
+                        Something went wrong :(
+                      </p>
+                    )}
 
-                {isLoading ? (
-                  <p>Loading...</p>
-                ) : (
-                  <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-                )}
-              </div>
-            </>
-          }
-        />
-        <Route
-          path="/new"
-          element={
-            <>
-              <h1>New Todo List</h1>
-            </>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+                    {isLoading ? (
+                      <p className={styles.Loading}>
+                        <Loading height="30px" width="30px" />
+                      </p>
+                    ) : (
+                      <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+                    )}
+                  </div>
+                </div>
+              </>
+            }
+          />
+          <Route path="/" element={<></>} />
+        </Routes>
+      </BrowserRouter>
+    </ChakraProvider>
   );
 };
 

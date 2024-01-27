@@ -18,7 +18,6 @@ const InputWithLabel = ({
   return (
     <>
       <label htmlFor={id}> {children} </label>
-      &nbsp;
       <input
         ref={inputRef}
         id={id}
@@ -27,7 +26,6 @@ const InputWithLabel = ({
         autoFocus={isFocused}
         onChange={onInputChange}
       />
-      &nbsp;
     </>
   );
 };

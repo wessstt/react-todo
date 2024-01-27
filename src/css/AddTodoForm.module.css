@@ -1,0 +1,31 @@
+.addTodoForm {
+  color: #4f5b5c;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.InputLine {
+  padding: 2% 16%;
+  margin: 1%;
+  font-weight: 500;
+}
+
+.List {
+  fill: #c6ec4c;
+  margin-right: 10px;
+}
+
+.buttonAdd {
+  color: #4f5b5c;
+  background: #c6ec4c;
+  border: 1px solid #c6ec4c;
+  border-radius: 5px;
+  padding: 2% 15%;
+  margin: 20px 10px;
+  font-weight: 700;
+}
+
+.buttonAdd:hover {
+  background: #a7c111;
+}
