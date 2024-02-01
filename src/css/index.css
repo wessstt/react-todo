@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@400;500&display=swap");
+
+:global * {
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  background: #4c5b5c;
+  width: 100%;
+  height: inherit;
+}

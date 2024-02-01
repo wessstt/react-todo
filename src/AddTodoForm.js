@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styles from "./css/AddTodoForm.module.css";
+import { ReactComponent as List } from "./svg/list.svg";
 
 const AddTodoForm = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
@@ -17,9 +19,9 @@ const AddTodoForm = ({ onAddTodo }) => {
 
     if (!todoTitle.trim().length) {
       //error popup message
-      toast("Please enter a list item.", {
+      toast.error("Please enter a list item.", {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -27,6 +29,7 @@ const AddTodoForm = ({ onAddTodo }) => {
         progress: undefined,
         theme: "light",
       });
+
       return;
     }
 
@@ -41,6 +44,7 @@ const AddTodoForm = ({ onAddTodo }) => {
   return (
     <form onSubmit={handleAddTodo}>
       <ToastContainer
+        limit={1}
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -52,17 +56,24 @@ const AddTodoForm = ({ onAddTodo }) => {
         pauseOnHover
         theme="light"
       />
-      <InputWithLabel
-        id="todoTitle"
-        type="text"
-        value={todoTitle}
-        onInputChange={handleTitleChange}
-        autoFocus
-      >
-        Title:
-      </InputWithLabel>
-      &nbsp; &nbsp;
-      <button type="submit"> Add </button>
+      <div className={styles.addTodoForm}>
+        <InputWithLabel
+          className={styles.InputLine}
+          id="todoTitle"
+          type="text"
+          value={todoTitle}
+          onInputChange={handleTitleChange}
+          autoFocus
+          limit={1}
+        >
+          <List className={styles.List} height="30px" width="30px" />
+        </InputWithLabel>
+
+        <button type="submit" className={styles.buttonAdd}>
+          {" "}
+          Add{" "}
+        </button>
+      </div>
     </form>
   );
 };

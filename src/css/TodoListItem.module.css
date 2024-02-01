@@ -1,0 +1,36 @@
+.listItem {
+  list-style-type: none;
+  margin: 3% 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.listRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1% 2% 1% 0;
+  width: 100%;
+}
+
+.Checkbox {
+  padding: 10px;
+  cursor: pointer;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.Checkbox:checked {
+  background: #ff715b;
+}
+
+.buttonRemove {
+  background: transparent;
+  fill: #a0d2db;
+}
+
+.buttonRemove:hover {
+  fill: #ff715b;
+}
