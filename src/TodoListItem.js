@@ -14,7 +14,7 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
           type="checkbox"
           id={id}
           checked={isChecked}
-          onChange={() => setIsChecked(!isChecked)}
+          onClick={() => setIsChecked(!isChecked)}
         />
 
         <label
@@ -30,7 +30,7 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
         <button
           type="button"
           className={styles.buttonRemove}
-          onChange={() => onRemoveTodo(id)}
+          onClick={() => onRemoveTodo(id)}
         >
           <Delete height="25px" width="25px" />
         </button>
