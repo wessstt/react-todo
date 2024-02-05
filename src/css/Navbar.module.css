@@ -1,9 +1,10 @@
 nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2;
   justify-content: center;
-  text-align: left;
   background-color: #c6ec4c;
-  padding: 18px;
+  padding: 18px 10px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -12,7 +13,7 @@ nav {
 
 nav a {
   color: #4f5b5c;
-  margin: 0 8%;
+  text-align: center;
   text-decoration: none;
 }
 

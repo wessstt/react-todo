@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "./css/AddTodoForm.module.css";
-import { ReactComponent as List } from "./svg/list.svg";
+import styles from "../css/AddTodoForm.module.css";
+import { ReactComponent as List } from "../svg/list.svg";
+import PropTypes from "prop-types";
 
 const AddTodoForm = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
@@ -36,7 +37,8 @@ const AddTodoForm = ({ onAddTodo }) => {
     //pass an Object instead of a String
     onAddTodo({
       title: todoTitle,
-      //id: Date.now(), // place holder to generate unique number
+      id: "todoTitle",
+      //Date.now(), // place holder to generate unique number
     });
     setTodoTitle(""); //reset todoTitle to empty String
   };
@@ -61,6 +63,7 @@ const AddTodoForm = ({ onAddTodo }) => {
           className={styles.InputLine}
           id="todoTitle"
           type="text"
+          name="title"
           value={todoTitle}
           onInputChange={handleTitleChange}
           autoFocus
@@ -76,6 +79,10 @@ const AddTodoForm = ({ onAddTodo }) => {
       </div>
     </form>
   );
+};
+
+AddTodoForm.propTypes = {
+  onAddTodo: PropTypes.func.isRequired,
 };
 
 export default AddTodoForm;

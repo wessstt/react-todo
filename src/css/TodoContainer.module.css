@@ -1,13 +1,15 @@
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background: #4c5b5c;
   font-family: "Open Sans", sans-serif;
   width: 100%;
+  height: inherit;
+  margin: inherit;
 }
 
-h1 {
+.ListTitle {
   font-family: "DM Serif Display", serif;
   font-size: 4em;
   font-weight: 600;

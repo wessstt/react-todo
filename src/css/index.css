@@ -7,5 +7,14 @@
 :root {
   background: #4c5b5c;
   width: 100%;
-  height: inherit;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #4c5b5c;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+
 }

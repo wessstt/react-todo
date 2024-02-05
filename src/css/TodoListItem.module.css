@@ -27,7 +27,8 @@
 }
 
 .buttonRemove {
-  background: transparent;
+  border: none;
+  background: none;
   fill: #a0d2db;
 }
 
