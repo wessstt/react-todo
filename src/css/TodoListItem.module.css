@@ -1,34 +1,54 @@
-.listItem {
-  list-style-type: none;
-  margin: 3% 0;
-  font-size: 18px;
-  font-weight: 500;
+.listContainer {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  align-content: space-between;
+  margin: 1%;
+  padding: 0 2%;
 }
 
+/* .listRow {
+  margin: 2% 1%;
+} */
+
 .listRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1% 2% 1% 0;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  list-style-type: none;
+  text-align: left;
+  color: #eaf4f4;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 1%;
+}
+
+.listItem {
+  appearance: none;
+  justify-content: center;
 }
 
 .Checkbox {
-  padding: 10px;
+  align-self: center;
+  height: 25px;
+  width: 25px;
   cursor: pointer;
-  vertical-align: middle;
   appearance: none;
   -webkit-appearance: none;
-  cursor: pointer;
 }
 
 .Checkbox:checked {
   background: #ff715b;
+  border: 1px solid #e44931;
 }
 
+button {
+  align-self: right;
+}
 .buttonRemove {
-  background: transparent;
-  fill: #a0d2db;
+  position: relative;
+  border: none;
+  background: none;
+  fill: #8ab940;
 }
 
 .buttonRemove:hover {

@@ -1,0 +1,73 @@
+.content {
+  background: #001700;
+  justify-content: center;
+  width: 100%;
+}
+
+.Logo {
+  padding-left: 3%;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  font-family: "Black Han Sans", sans-serif;
+  color: #eaf4f4;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 8%;
+}
+
+p {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: medium;
+  padding-inline: 25%;
+  padding-block: 2%;
+  text-align: center;
+}
+
+.Button {
+  display: flex;
+  flex-direction: column;
+  float: center;
+  margin-inline: 35%;
+  margin-top: 3%;
+}
+.ctaButt {
+  color: #001700;
+  background: #8ab940;
+  border: 1px solid #8ab940;
+  border-radius: 5px;
+  padding-block: 6%;
+  font-size: large;
+  text-align: center;
+}
+
+.ctaButt:hover {
+  background: #a7c111;
+}
+
+/*  ================================================== 
+    ****************  MEDIA QUERIES   ****************
+    ==================================================   */
+@media (max-width: 980px) and (min-width: 360px) {
+  .title {
+    font-size: 1em;
+  }
+
+  p {
+    padding-inline: 13%;
+    padding-block: 3%;
+  }
+
+  .Button {
+    margin-inline: 25%;
+    margin-top: 3%;
+  }
+  .ctaButt {
+    margin-inline: 25%;
+    margin-top: 3%;
+    margin-top: 3%;
+  }
+}

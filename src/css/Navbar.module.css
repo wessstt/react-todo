@@ -1,19 +1,25 @@
 nav {
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  background-color: #c6ec4c;
-  padding: 18px;
+  background-color: #8ab940;
+  padding: 16px 5px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 0.5pt;
+  vertical-align: middle;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  text-align: center;
 }
 
 nav a {
-  color: #4f5b5c;
-  margin: 0 8%;
+  color: #001700;
+  align-self: center;
+  text-align: left;
   text-decoration: none;
+  padding-left: 5%;
 }
 
 nav a:hover {

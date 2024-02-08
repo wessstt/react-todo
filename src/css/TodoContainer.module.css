@@ -1,26 +1,28 @@
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  background: #4c5b5c;
+  background: #001700;
   font-family: "Open Sans", sans-serif;
+  padding-bottom: 8em;
   width: 100%;
 }
 
-h1 {
-  font-family: "DM Serif Display", serif;
+.ListTitle {
+  font-family: "Black Han Sans", sans-serif;
   font-size: 4em;
   font-weight: 600;
   letter-spacing: 3pt;
   color: #eaf4f4;
-  margin-top: 0.5em;
+  margin-top: 1em;
+  text-align: center;
 }
 
 Input {
   background: #eaf4f4;
-  border: 1px solid #a0d2db;
+  border: 1.5px solid #8ab940;
   border-radius: 5px;
-  padding: 2% 16%;
+  padding: 1% 8%;
   margin: 1%;
   font-weight: 500;
 }
@@ -28,7 +30,7 @@ Input {
 .Loading {
   display: flex;
   justify-content: center;
-  fill: #c6ec4c;
+  fill: #8ab940;
 }
 .Error {
   display: flex;
