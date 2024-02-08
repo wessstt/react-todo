@@ -8,8 +8,9 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <li className={styles.listItem}>
-      <div className={styles.listRow}>
+    <div className={styles.listContainer}>
+      {/* <div className={styles.listRow}> */}
+      <li className={styles.listRow}>
         <input
           className={styles.Checkbox}
           type="checkbox"
@@ -19,10 +20,11 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
         />
 
         <label
+          className={styles.listItem}
           htmlFor={id}
           style={{
             textDecoration: isChecked ? "line-through" : "none",
-            color: isChecked ? "#ff715B" : "#a0d2db",
+            color: isChecked ? "#ff715B" : "#eaf4f4",
           }}
         >
           {title}
@@ -35,8 +37,9 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
         >
           <Delete height="25px" width="25px" />
         </button>
-      </div>
-    </li>
+      </li>
+    </div>
+    // </div>
   );
 };
 

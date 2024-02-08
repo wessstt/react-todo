@@ -6,13 +6,13 @@ import TodoList from "./TodoList.js";
 import styles from "../css/TodoContainer.module.css";
 import Navbar from "./Navbar";
 
-const todoHeader = "Todo List";
-const API_BASE_URL = "https://api.airtable.com/v0/";
-const AIRTABLE_BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID;
+const todoHeader = "Write That Down";
+const BASE_URL = "https://api.airtable.com/v0/";
+const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID;
 const TABLE_NAME = process.env.REACT_APP_TABLE_NAME;
-const AIRTABLE_API_TOKEN = process.env.REACT_APP_AIRTABLE_API_TOKEN;
+const API_TOKEN = process.env.REACT_APP_AIRTABLE_API_TOKEN;
 
-const url = `${API_BASE_URL}${AIRTABLE_BASE_ID}/${TABLE_NAME}`;
+const url = `${BASE_URL}${BASE_ID}/${TABLE_NAME}`;
 
 const TodoContainer = () => {
   const [todoList, setTodoList] = useState([]);
@@ -25,7 +25,7 @@ const TodoContainer = () => {
         url,
         method: "GET",
         headers: {
-          Authorization: `Bearer ${AIRTABLE_API_TOKEN}`,
+          Authorization: `Bearer ${API_TOKEN}`,
         },
       };
 
@@ -64,7 +64,7 @@ const TodoContainer = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${AIRTABLE_API_TOKEN}`,
+        Authorization: `Bearer ${API_TOKEN}`,
       },
       body: JSON.stringify({
         fields: {
@@ -103,7 +103,7 @@ const TodoContainer = () => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${AIRTABLE_API_TOKEN}`,
+        Authorization: `Bearer ${API_TOKEN}`,
       },
     };
     const URL = `${url}/${id}`;

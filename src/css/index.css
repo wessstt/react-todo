@@ -1,20 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@400;500&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
 :global * {
   font-family: "Open Sans", sans-serif;
 }
 
-:root {
-  background: #4c5b5c;
+html {
+  background: #001700;
   width: 100%;
+  align-items: center;
 }
 
 main {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  background: #4c5b5c;
-  font-family: "Open Sans", sans-serif;
-  width: 100%;
+  /* align-items: center; */
+}
 
+h1 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 4em;
+  font-weight: 600;
+  letter-spacing: 3pt;
+  color: #eaf4f4;
+  background: #001700;
+  margin-top: 0.5em;
 }
