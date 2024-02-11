@@ -13,7 +13,7 @@
 
 .listRow {
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-columns: 1fr 9fr 1fr;
   list-style-type: none;
   text-align: left;
   color: #eaf4f4;
@@ -41,10 +41,8 @@
   border: 1px solid #e44931;
 }
 
-button {
-  align-self: right;
-}
 .buttonRemove {
+  padding-left: 8%;
   position: relative;
   border: none;
   background: none;

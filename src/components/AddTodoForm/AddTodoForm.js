@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import InputWithLabel from "./InputWithLabel";
+import InputWithLabel from "../InputWithLabel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "../css/AddTodoForm.module.css";
-import { ReactComponent as List } from "../svg/list.svg";
+import styles from "./AddTodoForm.module.css";
+import { ReactComponent as List } from "../../svg/list.svg";
 import PropTypes from "prop-types";
 
 const AddTodoForm = ({ onAddTodo }) => {
@@ -12,7 +12,6 @@ const AddTodoForm = ({ onAddTodo }) => {
   const handleTitleChange = (event) => {
     const newTodoTitle = event.target.value;
     setTodoTitle(newTodoTitle);
-    //console.log(newTodoTitle);
   };
 
   const handleAddTodo = (event) => {
@@ -35,21 +34,18 @@ const AddTodoForm = ({ onAddTodo }) => {
     }
 
     //pass an Object instead of a String
-    onAddTodo({
-      title: todoTitle,
-      id: "todoTitle",
-      //Date.now(), // place holder to generate unique number
-    });
+    onAddTodo(todoTitle);
     setTodoTitle(""); //reset todoTitle to empty String
   };
 
   return (
     <form className={styles.formContainer} onSubmit={handleAddTodo}>
-      <List className={styles.formIcon} height="30px" width="30px" />
+      <>
+        <List className={styles.formIcon} height="30px" width="30px" />
+      </>
       <InputWithLabel
         id="todoTitle"
         type="text"
-        name="title"
         value={todoTitle}
         onInputChange={handleTitleChange}
         autoFocus
