@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import TodoContainer from "./components/TodoContainer.js";
-import styles from "./css/TodoContainer.module.css";
+import TodoContainer from "./components/TodoContainer/TodoContainer.js";
+import styles from "./components/TodoContainer/TodoContainer.module.css";
 import "./css/index.css";
-import LandingPage from "./components/LandingPage.js";
+import LandingPage from "./components/LandingPage/LandingPage.js";
 
 const App = () => {
   return (

@@ -1,5 +1,5 @@
-import styles from "../css/LandingPage.module.css";
-import { ReactComponent as Icon } from "../svg/WTDicon.svg";
+import styles from "./LandingPage.module.css";
+import { ReactComponent as Icon } from "../../svg/WTDicon.svg";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
