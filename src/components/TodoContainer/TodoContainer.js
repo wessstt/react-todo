@@ -45,6 +45,7 @@ const TodoContainer = () => {
           {
             id: response.id,
             title: response.fields.title,
+            createdTime: response.fields.createdTime,
           },
         ];
         return sortByTitle(newList, Sort, isReversed);
@@ -95,7 +96,7 @@ const TodoContainer = () => {
       }
     };
     getTodos();
-  }, [setTodoList]);
+  }, []);
 
   useEffect(() => {
     setTodoList((lastTodoList) =>
@@ -105,7 +106,7 @@ const TodoContainer = () => {
     localStorage.setItem(LOCAL_STORAGE_SORT_BY_KEY, sortBy);
   }, [isReversed, sortBy]);
 
-  const handleIsReversedChange = (event) =>
+  const handleIsReversedChange = () =>
     setIsReversed((lastTodoList) => !lastTodoList);
 
   const handleSort = (event) => {

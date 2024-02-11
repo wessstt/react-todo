@@ -7,6 +7,7 @@ const SortBox = ({ isReversed, onIsReversedChange }) => {
   return (
     <div className={styles.SortContainer}>
       <div className={styles.Sort}>Sort :</div>
+
       <Sort
         height="30px"
         width="30px"
