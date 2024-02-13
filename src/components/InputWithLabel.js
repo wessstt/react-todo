@@ -8,6 +8,7 @@ const InputWithLabel = ({
   value,
   isFocused,
   onInputChange,
+  
 }) => {
   const inputRef = useRef(null);
 

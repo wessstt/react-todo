@@ -27,8 +27,9 @@ Input {
   font-weight: 500;
 }
 
-.Loading {
+.loadingIcon {
   display: flex;
+  align-items: center;
   justify-content: center;
   fill: #8ab940;
 }
@@ -39,4 +40,5 @@ Input {
   color: #eaf4f4;
   font-weight: 800;
   fill: #ff715b;
+  letter-spacing: 1px;
 }

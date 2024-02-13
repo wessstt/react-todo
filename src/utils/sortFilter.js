@@ -15,3 +15,4 @@ const sortByTitle = (array, todoList, isReversed = false) => {
 };
 
 export default sortByTitle;
+

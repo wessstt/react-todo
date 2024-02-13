@@ -50,5 +50,4 @@ TodoListItem.propTypes = {
   }).isRequired,
   onRemoveTodo: PropTypes.func.isRequired,
 };
-
 export default TodoListItem;

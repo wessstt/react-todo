@@ -29,6 +29,17 @@ nav a:hover {
   font-weight: 800;
 }
 
+.navLink {
+  font-weight: 700;
+  padding: 2% 6%;
+  border-radius: 10px;
+}
+
+.navLink:hover {
+  background-color: #001700;
+  color: #8ab940;
+}
+
 /*  ================================================== 
     ****************  MEDIA QUERIES   ****************
     ==================================================   */

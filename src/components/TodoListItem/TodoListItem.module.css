@@ -7,10 +7,6 @@
   padding: 0 2%;
 }
 
-/* .listRow {
-  margin: 2% 1%;
-} */
-
 .listRow {
   display: grid;
   grid-template-columns: 1fr 9fr 1fr;
@@ -41,7 +37,8 @@
   border: 1px solid #e44931;
 }
 
-.buttonRemove {
+.buttonRemove,
+.buttonEdit {
   padding-left: 8%;
   position: relative;
   border: none;

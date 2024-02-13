@@ -9,7 +9,7 @@ const URL = `${BASE_URL}${BASE_ID}/${TABLE_NAME}`;
 const fetchAirtableData = async ({ method, url, body }) => {
   const headers = {
     "Content-Type": "application/json",
-    Accept: "application/json",
+
     Authorization: `Bearer ${API_TOKEN}`,
   };
 

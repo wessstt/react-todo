@@ -5,26 +5,23 @@ import AddTodoForm from "../AddTodoForm/AddTodoForm";
 import TodoList from "../TodoList";
 import styles from "./TodoContainer.module.css";
 import Navbar from "../Navbar/Navbar";
+import PropTypes from "prop-types";
 import fetchAirtableData from "../../utils/fetchAirtableData";
 import sortByTitle from "../../utils/sortFilter";
 import SortBox from "../SortBox/SortBox";
 
 const todoHeader = "Write That Down";
-
 const GRID_VIEW = "?view=Grid%20view";
+const REVERSED_KEY = "todoListIsReversed";
+const SORT_BY_KEY = "todoListSortBy";
+const initialSort = localStorage.getItem(SORT_BY_KEY) ?? "title";
+const sortIsReversed = JSON.parse(localStorage.getItem(REVERSED_KEY)) ?? [];
 
-const LOCAL_STORAGE_REVERSED_KEY = "todoListIsReversed";
-const LOCAL_STORAGE_SORT_BY_KEY = "todoListSortBy";
-
-const Sort = localStorage.getItem(LOCAL_STORAGE_SORT_BY_KEY) ?? "title";
-const sortIsReversed =
-  JSON.parse(localStorage.getItem(LOCAL_STORAGE_REVERSED_KEY)) ?? [];
-
-const TodoContainer = () => {
+const TodoContainer = ({ tableName }) => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [sortBy, setSortBy] = useState(Sort);
+  const [sortBy, setSortBy] = useState(initialSort);
   const [isReversed, setIsReversed] = useState(sortIsReversed);
 
   const addTodo = async (newTodo) => {
@@ -40,15 +37,14 @@ const TodoContainer = () => {
         body: airtableData,
       });
       setTodoList((newTodoList) => {
-        const newList = [
+        const newTodos = [
           ...newTodoList,
           {
             id: response.id,
             title: response.fields.title,
-            createdTime: response.fields.createdTime,
           },
         ];
-        return sortByTitle(newList, Sort, isReversed);
+        return sortByTitle(newTodos, initialSort, sortIsReversed);
       });
     } catch (error) {
       console.log(error.message);
@@ -73,8 +69,11 @@ const TodoContainer = () => {
   };
 
   useEffect(() => {
+    setSortBy(initialSort);
+    setIsReversed(sortIsReversed);
     const getTodos = async () => {
       try {
+        setIsLoading(true);
         const response = await fetchAirtableData({
           method: "GET",
           url: `${GRID_VIEW}`,
@@ -85,7 +84,7 @@ const TodoContainer = () => {
             title: todo.fields.title,
           };
         });
-        const sortedTodos = sortByTitle(todos, Sort, sortIsReversed);
+        const sortedTodos = sortByTitle(todos, initialSort, sortIsReversed);
         setTodoList(sortedTodos);
         setIsError(false);
       } catch (error) {
@@ -96,14 +95,14 @@ const TodoContainer = () => {
       }
     };
     getTodos();
-  }, []);
+  }, [tableName]);
 
   useEffect(() => {
     setTodoList((lastTodoList) =>
       sortByTitle(lastTodoList, sortBy, isReversed)
     );
-    localStorage.setItem(LOCAL_STORAGE_REVERSED_KEY, isReversed);
-    localStorage.setItem(LOCAL_STORAGE_SORT_BY_KEY, sortBy);
+    localStorage.setItem(REVERSED_KEY, isReversed);
+    localStorage.setItem(SORT_BY_KEY, sortBy);
   }, [isReversed, sortBy]);
 
   const handleIsReversedChange = () =>
@@ -118,7 +117,11 @@ const TodoContainer = () => {
       <Navbar />
       <div className={styles.container}>
         <div className={styles.App}>
-          <h1 className={styles.ListTitle}>{todoHeader}</h1>
+          <h1 className={styles.ListTitle}>
+            {tableName}
+            {todoHeader}
+          </h1>
+
           <AddTodoForm onAddTodo={addTodo} />
 
           {isError && (
@@ -130,8 +133,8 @@ const TodoContainer = () => {
           )}
 
           {isLoading ? (
-            <p className={styles.Loading}>
-              <Loading height="30px" width="30px" />
+            <p className={styles.loadingIcon}>
+              <Loading height="50px" width="50px" />
             </p>
           ) : (
             <>
@@ -150,6 +153,10 @@ const TodoContainer = () => {
       </div>
     </>
   );
+};
+
+TodoContainer.propTypes = {
+  tableName: PropTypes.string,
 };
 
 export default TodoContainer;

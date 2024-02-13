@@ -19,6 +19,9 @@ const LandingPage = () => {
           </Link>
         </div>
       </div>
+      <p className={styles.footer}>
+        &copy;{new Date().getFullYear()} | Write That Down 
+      </p>
     </>
   );
 };
