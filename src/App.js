@@ -5,7 +5,7 @@ import TodoContainer from "./components/TodoContainer/TodoContainer.js";
 // import styles from "./components/TodoContainer/TodoContainer.module.css";
 import "./css/index.css";
 import LandingPage from "./components/LandingPage/LandingPage.js";
-import NewList from "./components/newList.js";
+import NewList from "./components/NewList/newList.js";
 
 const App = () => {
   return (
