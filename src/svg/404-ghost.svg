@@ -8,7 +8,7 @@
 	.st2{fill:#F3F9F2;}
 	.st3{fill:#081106;}
 	.st4{opacity:0.07;fill:#78CC0A;enable-background:new    ;}
-	.st5{fill:#326D24;}
+	.st5b{fill:#326D24;}
 	.st6{enable-background:new    ;}
 	.st7{opacity:0.6;}
 	.st8{opacity:0.28;}
@@ -34,7 +34,7 @@
 <polygon class="st4" points="199.25,171.73 365.92,40.36 419.6,213.9 201.34,187.27 "/>
 <g>
 	<g>
-		<circle class="st5" cx="447.32" cy="110.14" r="107.37"/>
+		<circle class="st5b" cx="447.32" cy="110.14" r="107.37"/>
 	</g>
 	<g class="st6">
 		<path class="st2" d="M405.01,115.91h-23.56v-41h21.27c3.94,0,6.74,0.77,8.42,2.3c1.68,1.53,2.52,3.75,2.52,6.67
